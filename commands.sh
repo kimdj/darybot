@@ -95,8 +95,14 @@ elif has "${msg}" "^!google " ; then
     googleSubroutine "${payload}"
 
 elif has "${msg}" "^!define " ; then
-    payload=$(echo ${msg} | sed -r 's/^!define //')
-    googleSubroutine "${payload}"
+    if [[ "${msg}" = *-r* ]] || [[ "${msg}" = *--random* ]] ; then
+        random_word="$(./random-word-generator.sh 1 | sed -r "s|'||g")"
+        say ${chan} "Random word: ${random_word}"
+        googleSubroutine "${random_word}"
+    else
+        payload=$(echo ${msg} | sed -r 's/^!define //')
+        googleSubroutine "${payload}"
+    fi
 
 # Have darybot send an IRC command to the IRC server.
 
