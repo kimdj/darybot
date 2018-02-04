@@ -70,7 +70,7 @@ function helpSubroutine {
 
 # Help Command.
 
-if has "${msg}" "^!darybot$" || has "${msg}" "^darybot: help$" || has "${msg}" "^!google$" || has "${msg}" "^darybot: google$" || has "${msg}" "^darybot: google$" ; then
+if has "${msg}" "^!darybot$" || has "${msg}" "^darybot: help$" || has "${msg}" "^!google$" || has "${msg}" "^darybot: google$" || has "${msg}" "^!define$" || has "${msg}" "^darybot: define$" ; then
     helpSubroutine
 
 # Alive.
