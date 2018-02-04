@@ -78,7 +78,8 @@ if has "${msg}" "^!darybot$" || has "${msg}" "^darybot: help$" || has "${msg}" "
 elif has "${msg}" "^!alive(\?)?$" || has "${msg}" "^darybot: alive(\?)?$" ; then
     str1='running! '
     str2=$(ps aux | grep ./darybot | head -n 1 | awk '{ print "[%CPU "$3"]", "[%MEM "$4"]", "[START "$9"]", "[TIME "$10"]" }')
-    str="${str1}${str2}"
+    str3=" [TOT_SIZE $(du -sh | cut -f -1)]"
+    str="${str1}${str2}${str3}"
     say ${chan} "${str}"
 
 # Source.
