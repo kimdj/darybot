@@ -98,7 +98,7 @@ elif has "${msg}" "^!google " ; then
 elif has "${msg}" "^!define " ; then
     if [[ "${msg}" = *-r* ]] || [[ "${msg}" = *--random* ]] ; then
         random_word="$(./random-word-generator.sh 1 | sed -r "s|'||g")"
-        say ${chan} "Random word: ${random_word}"
+        say ${chan} "Random word: ${random_word,,}"
         googleSubroutine "${random_word}"
     else
         payload=$(echo ${msg} | sed -r 's/^!define //')
